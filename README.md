@@ -3,8 +3,10 @@
 `read_data.py` file contains the script to load and process the NFT data.
 
 Usage :
-
-`art_metadata_df, artist_metadata_df, invited_by_metadata,bidding_df, minting_df, listing_df, max_bid_df,total_artist_earning, total_buyer_spending = load_data()`
+```
+from read_data import load_data()
+art_metadata_df, artist_metadata_df, invited_by_metadata,bidding_df, minting_df, listing_df, max_bid_df,total_artist_earning, total_buyer_spending = load_data()
+```
 
 Stats about the data:
 
