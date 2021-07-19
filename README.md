@@ -8,7 +8,8 @@ Usage :
 
 Stats about the data:
 
-> N art minted: 50723
+```
+N art minted: 50723
 N art listed: 48059
 N art sold: 15279
 N art re-listed: 1928
@@ -16,3 +17,4 @@ N art resold: 138
 N creators: 15366
 N buyers: 5531
 N bids: 37013
+```
