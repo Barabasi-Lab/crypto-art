@@ -1,6 +1,7 @@
 # Crypto Art Data
 
-`read_data.py` file contains the script to load and process the NFT data.
+`read_data.py` file contains the script to load and process the NFT data. 
+`query_FND_graph.ipynb` file contains the script to extract the latest data version from Foundation. 
 
 Usage :
 ```
@@ -13,8 +14,8 @@ Stats about the data:
 ```
 N art minted: 50723
 N art listed: 48059
-N art sold: 15279
 N art re-listed: 1928
+N art sold: 15279
 N art resold: 138
 N creators: 15366
 N buyers: 5531

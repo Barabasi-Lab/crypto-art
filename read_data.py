@@ -19,23 +19,24 @@ warnings.filterwarnings('ignore')
 
 import copy
 
+# function to load the data
 def load_data():
   print("loading data...")
-  art_metadata_df = pd.read_csv("../data/nft_metadata.csv")
+  art_metadata_df = pd.read_csv("data/nft_metadata.csv")
 
-  bidding_df = pd.read_csv("../data/bid_data.csv")
+  bidding_df = pd.read_csv("data/bid_data.csv")
   bidding_df['bidding_dt'] = bidding_df.bid_date.apply(lambda x: datetime.utcfromtimestamp(int(x)))
   bidding_df['bidding_d'] = bidding_df.bidding_dt.apply(lambda x: x.date())
 
-  listing_df = pd.read_csv("../data/list_data.csv")
+  listing_df = pd.read_csv("data/list_data.csv")
   listing_df['list_dt'] = listing_df.listing_date.apply(lambda x: datetime.utcfromtimestamp(int(x)))
   listing_df['listing_d'] = listing_df.list_dt.apply(lambda x: x.date())
 
-  minting_df = pd.read_csv("../data/mint_data.csv")
+  minting_df = pd.read_csv("data/mint_data.csv")
   minting_df['mint_dt'] = minting_df.mint_date.apply(lambda x: datetime.utcfromtimestamp(int(x)))
   minting_df['minting_date'] = minting_df.mint_dt.apply(lambda x: x.date())
 
-  daily_ether_price = pd.read_csv("../data/daily-usd-ether-data.csv")
+  daily_ether_price = pd.read_csv("data/daily-usd-ether-data.csv")
   daily_ether_price['d'] = daily_ether_price['Date(UTC)'].apply(lambda x: datetime.strptime(x, '%m/%d/%Y'))
   daily_ether_price['d'] = daily_ether_price.d.apply(lambda x: x.date())
 
@@ -147,16 +148,16 @@ def load_data():
   total_buyer_spending = pd.merge(total_buyer_spending, n_art_owner, how='left')
 
   # artist metadata
-  artist_metadata_df = pd.read_csv("../data/artist_metadata.csv")
-  artist_twitter_df = pd.read_csv("../data/artist_twitter_metadata.csv")
+  artist_metadata_df = pd.read_csv("data/artist_metadata.csv")
+  artist_twitter_df = pd.read_csv("data/artist_twitter_metadata.csv")
   artist_twitter_df['twitter'] = artist_twitter_df.user_name.apply(lambda x: 'https://twitter.com/'+x)
   tmp = artist_twitter_df[['twitter','followers_count','following_count','verified']]
   tmp.columns = ['twitter','followers_twitter','following_twitter','verified']
   artist_metadata_df = pd.merge(artist_metadata_df, tmp, how='left',on='twitter')
 
   # invited artist metadata
-  invited_by_metadata = pd.read_csv("../data/invited_by_metadata.csv")
-  invited_by_twitter = pd.read_csv("../data/invited_by_twitter_metadata.csv")
+  invited_by_metadata = pd.read_csv("data/invited_by_metadata.csv")
+  invited_by_twitter = pd.read_csv("data/invited_by_twitter_metadata.csv")
 
   invited_by_twitter['twitter'] = invited_by_twitter.user_name.apply(lambda x: 'https://twitter.com/'+x)
   tmp = invited_by_twitter[['twitter','followers_count','following_count','verified']]
